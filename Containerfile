@@ -59,7 +59,7 @@ curl https://www.rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x
 dnf install -y bootc.rpm
 rm -f bootc.rpm
 
-cp /usr/lib/bootc/initramfs-setup /usr/lib/dracut/modules.d/37coreos-root-setup
+cp /usr/lib/bootc/initramfs-setup /usr/lib/dracut/modules.d/37coreos-root-setup/bootc-initramfs-setup
 
 # Uninstall bootupd (no support for systemd-boot yet)
 rpm -e bootupd
