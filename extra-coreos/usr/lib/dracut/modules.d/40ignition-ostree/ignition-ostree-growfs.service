@@ -7,10 +7,11 @@ ConditionPathExists=!/run/ostree-live
 Before=initrd-root-fs.target
 Before=sysroot.mount
 After=ignition-ostree-uuid-root.service
+After=systemd-udev-settle.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/sbin/ignition-ostree-growfs
+ExecStart=bash -c 'udevadm settle && sleep 1 && /usr/sbin/ignition-ostree-growfs'
 RemainAfterExit=yes
 # So we can transiently mount sysroot
 MountFlags=slave
